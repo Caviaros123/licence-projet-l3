@@ -6,12 +6,14 @@
 </head>
 <body>
 <nav>
-    <ul>
-        <li><a href="index.php?page=1">Accueil</a></li>
-        <li><a href="index.php?page=2">Inscription</a></li>
-        <li><a href="index.php?page=3">Se Connecter</a></li>
-        <li><a href="index.php?page=4">Stat</a></li>
-    </ul>
+<ul>
+    <li><a href="index.php?page=1">Accueil</a></li>
+    <li><a href="index.php?page=2">Inscription</a></li>
+    <li><a href="index.php?page=3">Se Connecter</a></li>
+    <li><a href="index.php?page=4">Stat</a></li>
+    <li><a href="index.php?page=5">Enquetes</a>
+</ul>
+
 </nav>
 <center>
     <h1>Projet wmd_23</h1>
@@ -44,6 +46,10 @@
         case 4: {
             require_once("vues/vue_users.php");
         }break;
+        case 5: {
+            require_once("vues/vue_enquete_1.php");
+        }break;
+
     }
     ?>
 </center>

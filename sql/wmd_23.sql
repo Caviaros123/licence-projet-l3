@@ -70,7 +70,9 @@ CREATE TABLE Utilisateurs (
     Nom VARCHAR(255),
     Prenom VARCHAR(255),
     Email VARCHAR(255),
+    Age, int (3),
     Mdp_Utilisateur VARCHAR(255),
+    Telephone int (3),
     Date_Inscription DATE,
     id_role INT,
     PRIMARY KEY (id_utilisateur),
@@ -108,9 +110,9 @@ CREATE TABLE Sejours (
 CREATE TABLE Evaluations (
     id_evaluation INT AUTO_INCREMENT,
     id_sejour INT,
-    Note INT,
-    Commentaire VARCHAR(255),
-    Date_Evaluation DATE,
+    Note INT not null,
+    Commentaire VARCHAR(255) not null,
+    Date_Evaluation DATE ,
     PRIMARY KEY (id_evaluation),
     FOREIGN KEY (id_sejour) REFERENCES Sejours(id_sejour)
 );
@@ -207,30 +209,6 @@ BEGIN
 END;
 //
 DELIMITER ;
-
--- [Evaluation] mettre à jour automatiquement la note moyenne d'un séjour chaque fois qu'elle à une nouvelle évaluation
-
-DELIMITER //
-CREATE TRIGGER update_average_rating
-AFTER INSERT ON Evaluations
-FOR EACH ROW
-BEGIN
-    -- Déterminez l'ID du séjour associé à cette évaluation
-    DECLARE stay_id INT;
-    SELECT id_sejour INTO stay_id FROM Evaluations WHERE id_evaluation = NEW.id_evaluation;
-    
-    -- Calculez la nouvelle note moyenne du séjour
-    UPDATE Sejours
-    SET Note_Moyenne = (
-        SELECT AVG(Note)
-        FROM Evaluations
-        WHERE id_sejour = stay_id
-    )
-    WHERE id_sejour = stay_id;
-END;
-//
-DELIMITER ;
-
 
 -- [Réservation] vérifier si le nombre de places disponibles en séjour est inférieur au nombre de personnes spécifié dans la réservation.
 

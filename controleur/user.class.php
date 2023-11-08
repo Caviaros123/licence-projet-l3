@@ -1,10 +1,10 @@
 <?php
 class User {
-    private $iduser, $nom, $prenom, $email, $mdp, $dateInscription ;
+    private $iduser, $nom, $prenom, $age, $email, $telephone, $mdp, $dateInscription;
 
     public function __construct() {
         $this->iduser = 0;
-        $this->nom = $this->prenom =$this->email =$this->mdp="";
+        $this->nom = $this->prenom = $this->age = $this->email = $this->telephone = $this->mdp="";
         $this->dateInscription = 0;
     }
 
@@ -12,16 +12,20 @@ class User {
         $this->iduser = (isset($tab['iduser'])) ? $tab['iduser'] : 0;
         $this->nom = $tab['nom'];
         $this->prenom = $tab['prenom'];
+        $this->age = $tab['age'];
         $this->email = $tab['email'];
-        $this->mdp = $tab['mdp'];
-        $this->salaire = $tab['dateInscription']; 
+        $this->telephone = $tab['telephone'];
+        $this->mdp = $tab['mdp']; 
+        $this->dateInscription = (isset($tab['dateInscription'])) ? $tab['dateInscription'] : 0;
     }
     
     public function afficherHtml() {
         return "
-        <br> Nom : " . $this->nom . "
-        <br> Prénom : " . $this->prenom . "
-        <br> Email : " . $this->email . "
+        <br> nom : " . $this->nom . "
+        <br> prenom : " . $this->prenom . "
+        <br> age : " . $this->age . "
+        <br> email : " . $this->email . "
+        <br> telephone : " . $this->telephone . "
         <br> Date d'inscription : " . $this->dateInscription . "
         ";
     }
@@ -31,7 +35,9 @@ class User {
             "iduser" => $this->iduser,
             "nom" => $this->nom,
             "prenom" => $this->prenom,
+            "age" => $this->age,
             "email" => $this->email,
+            "telephone" => $this->telephone,
             "mdp" => $this->mdp,
             "dateInscription" => $this->dateInscription,
         );
@@ -67,12 +73,27 @@ class User {
         $this->prenom = $prenom;
     }
 
+    public function getAge() {
+        return $this->age;
+    }
+    
+    public function setAge($age) {
+        $this->age = $age;
+    }
     public function getEmail() {
         return $this->email;
     }
 
     public function setEmail($email) {
         $this->email = $email;
+    }
+
+    public function gettelephone() {
+        return $this->telephone;
+    }
+    
+    public function settelephone($telephone) {
+        $this->telephone = $telephone;
     }
 
     public function getMdp() {
