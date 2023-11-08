@@ -8,6 +8,7 @@
 <nav>
 <ul>
     <li><a href="index.php?page=1">Accueil</a></li>
+    
     <li><a href="index.php?page=2">Inscription</a></li>
     <li><a href="index.php?page=3">Se Connecter</a></li>
     <li><a href="index.php?page=4">Stat</a></li>
