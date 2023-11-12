@@ -15,16 +15,17 @@ class Modele {
 
     public function inscription($tab) {
         $dateInscription = date("Y-m-d H:i:s"); // Obtient la date actuelle au format "Y-m-d H:i:s"
-    
-        $requete = "INSERT INTO Utilisateurs (Nom, Prenom, Age, Email, Telephone, Mdp_Utilisateur, Date_Inscription) VALUES (:nom, :prenom, :age, :email, :telephone, :mdp, :dateInscription)";
-    
+        var_dump($dateInscription);
+        var_dump("USER DATA ====>> ".json_encode($tab));
+        $requete = "INSERT INTO Utilisateurs (nom, prenom, age, email, telephone, mdp_utilisateur, date_inscription) VALUES (:nom, :prenom, :age, :email, :telephone, :mdp, :dateInscription)";
+        
         $donnees = array(
             ":nom" => $tab["nom"],
             ":prenom" => $tab["prenom"],
             ":age" => $tab["age"],
             ":email" => $tab["email"],
             ":telephone" => $tab["telephone"],
-            ":mdp" => $tab["mdp"],
+            ":mdp" => password_hash($tab["mdp"], PASSWORD_DEFAULT),
             ":dateInscription" => $dateInscription // Utilise la date actuelle
         );
     
@@ -32,15 +33,29 @@ class Modele {
         $select->execute($donnees);
     }
 
+
     public function connexion($email, $mdp) {
-        $requete = "SELECT * FROM Utilisateurs WHERE Email = :email AND Mdp_Utilisateur = :mdp";
-        $donnees = array(
-            ":email" => $email,
-            ":mdp" => $mdp
-        );
+        $requete = "SELECT * FROM Utilisateurs WHERE email = :email";
         $select = $this->unPdo->prepare($requete);
-        $select->execute($donnees);
-        return $select->fetch();
+        $select->execute([":email" => $email]);
+        $utilisateur = $select->fetch();
+
+        if ($utilisateur && password_verify($mdp, $utilisateur['mdp_utilisateur'])) {
+            // Connexion réussie
+            unset($utilisateur['mdp_utilisateur']);
+            return $utilisateur;
+        } else {
+            // Identifiants incorrects
+            return null;
+        }
+    }
+
+    // get sejours
+    public function getSejours() {
+        $requete = "SELECT * FROM sejours";
+        $select = $this->unPdo->prepare($requete);
+        $select->execute();
+        return $select->fetchAll();
     }
 
     public function getUsers() {
@@ -51,7 +66,7 @@ class Modele {
     }
 
     public function getInscriptions() {
-        $requete = "SELECT Age, Date_Inscription FROM Utilisateurs";
+        $requete = "SELECT age, date_inscription FROM Utilisateurs";
         $select = $this->unPdo->prepare($requete);
         $select->execute();
         return $select->fetchAll(PDO::FETCH_ASSOC);
@@ -61,30 +76,32 @@ class Modele {
         return $this->unPdo->query($requete);
     }
     
-public function enregistrerEnquete($tab) {
-    // Utilisation de la fonction MySQL NOW() pour la date actuelle
-    $requete = "INSERT INTO Evaluations (Note, Commentaire, Date_Evaluation) VALUES (:note, :commentaire, NOW())";
+    public function enregistrerEnquete($tab) {
+        // Utilisation de la fonction MySQL NOW() pour la date actuelle
+        $requete = "INSERT INTO Evaluations (id_sejour, note, commentaire, date_evaluation, id_utilisateur) VALUES (:id_sejour, :note, :commentaire, NOW(), :id_utilisateur)";
 
-    $donnees = array(
-        ":note" => $tab["note"],
-        ":commentaire" => $tab["commentaire"]
-    );
+        $donnees = array(
+            ":id_sejour" => $tab["id_sejour"],
+            ":note" => $tab["note"],
+            ":commentaire" => $tab["commentaire"],
+            ":id_utilisateur" => $tab["user"]
+        );
 
-    $select = $this->unPdo->prepare($requete);
-    $select->execute($donnees);   
-}
+        $select = $this->unPdo->prepare($requete);
+        $select->execute($donnees);
+    }
 
-public function SejoursMoyennesNotes() {
-    $requete = "SELECT Sejours.id_sejour, Station_Sejour, AVG(Evaluations.Note) AS MoyenneNote
-                FROM Sejours
-                LEFT JOIN Evaluations ON Sejours.id_sejour = Evaluations.id_sejour
-                GROUP BY Sejours.id_sejour, Station_Sejour";
+    public function SejoursMoyennesNotes() {
+        $requete = "SELECT Sejours.id_sejour, station_Sejour, AVG(Evaluations.Note) AS MoyenneNote
+                    FROM Sejours
+                    LEFT JOIN Evaluations ON Sejours.id_sejour = Evaluations.id_sejour
+                    GROUP BY Sejours.id_sejour, Station_Sejour";
 
-    $select = $this->unPdo->prepare($requete);
-    $select->execute();
+        $select = $this->unPdo->prepare($requete);
+        $select->execute();
 
-    return $select->fetchAll(PDO::FETCH_ASSOC);
-}
+        return $select->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     public function enregistrerEnqueteBase() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -136,6 +153,36 @@ public function SejoursMoyennesNotes() {
         $note = $this->getCookie("enquete_note");
         $commentaire = $this->getCookie("enquete_commentaire");
         return ['note' => $note, 'commentaire' => $commentaire];
+    }
+
+    public function recupererEnqueteDepuisCookies() {
+        // Utilisation de la méthode getCookie pour récupérer la note et le commentaire depuis les cookies
+        $nom = $this->getCookie("enquete_nom");
+        $prenom = $this->getCookie("enquete_prenom");
+        $satisfaction = $this->getCookie("enquete_satisfaction");
+        return ['nom' => $nom, 'prenom' => $prenom, 'satisfaction' => $satisfaction];
+    }
+
+    public function supprimerEnqueteCookies() {
+        // Utilisation de la méthode setCookie pour supprimer les cookies
+        $this->setCookie("enquete_nom", "", -1); // Supprime le cookie enquete_nom
+        $this->setCookie("enquete_prenom", "", -1); // Supprime le cookie enquete_prenom
+        $this->setCookie("enquete_satisfaction", "", -1); // Supprime le cookie enquete_satisfaction
+    }
+
+    public function supprimerEnqueteDepuisCookies() {
+        // Utilisation de la méthode setCookie pour supprimer les cookies
+        $this->setCookie("enquete_nom", "", -1); // Supprime le cookie enquete_nom
+        $this->setCookie("enquete_prenom", "", -1); // Supprime le cookie enquete_prenom
+        $this->setCookie("enquete_satisfaction", "", -1); // Supprime le cookie enquete_satisfaction
+    }
+
+
+    public function getEnquete() {
+        $requete = "SELECT * FROM Evaluations";
+        $select = $this->unPdo->prepare($requete);
+        $select->execute();
+        return $select->fetchAll(PDO::FETCH_ASSOC);
     }
     
 

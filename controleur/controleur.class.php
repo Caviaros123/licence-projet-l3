@@ -26,15 +26,17 @@ class Controleur {
 
     public function enregistrerEnquete($tab) {
         // Capturez les données soumises
-        $nom = $tab["nom"];
-        $prenom = $tab["prenom"];
-        $satisfaction = $tab["satisfaction"];
-    
-        // Stockez les données dans des cookies
-        $this->unModele->stockerEnqueteDansCookies($note, $commentaire);
+        // Stockez les données dans la table Evaluations
+        $this->unModele->enregistrerEnquete($tab);
+        
     
         // Redirigez vers une page de confirmation
-        header('Location: confirmation_cookie.php');
+        //header('Location: confirmation_cookie.php');
+    }
+
+    // getSejours
+    public function getSejours() {
+        return $this->unModele->getSejours();
     }
 
     public function getEnquete() {
@@ -44,7 +46,7 @@ class Controleur {
     public function SejoursMoyennesNotes() {
         $tab = $this->unModele->SejoursMoyennesNotes(); // Récupérez les données du modèle
 
-        include 'vues/vue_enquete_1.php'; 
+        include 'vues/vue_enquete_1.php';
     }
     
     public function getSejoursMoyennesNotes() {
@@ -60,5 +62,6 @@ class Controleur {
         // Affichez le formulaire avec les données récupérées
         include 'vues/vue_enquete_2.php';
     }
+    
 }
 

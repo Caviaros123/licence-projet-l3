@@ -1,17 +1,17 @@
 <h3> Inscription Utilisateur </h3>
 <form method="post" id="inscription-form">
     Nom : <br>
-    <input type="text" name="nom" id="nom" onblur="c_nom()"> <br>
+    <input class="form-input form-control pb-3" type="text" name="nom" id="nom" onblur="c_nom()"> <br>
     Prénom : <br>
-    <input type="text" name="prenom" id="prenom" onblur="c_prenom()"> <br>
+    <input class="form-input form-control pb-3" type="text" name="prenom" id="prenom" onblur="c_prenom()"> <br>
     Age : <br>
-    <input type="number" id="age" name="age" onblur="c_age()"> <br>
+    <input class="form-input form-control pb-3" type="number" id="age" name="age" onblur="c_age()"> <br>
     Email : <br>
-    <input type="text" name="email" id="email" onblur="c_email()"> <br>
+    <input class="form-input form-control pb-3" type="email" required name="email" id="email" onblur="c_email()"> <br>
     Telephone : <br>
-    <input type="text" name="telephone" id="telephone" onblur="c_telephone()"> <br>
+    <input class="form-input form-control pb-3" type="text" name="telephone" id="telephone" onblur="c_telephone()"> <br>
     Mot de passe: <br>
-    <input type="password" name="mdp" id="mdp"> <br>
+    <input class="form-button form-control pb-3" type="password" name="mdp" id="mdp"> <br>
 
     <!-- Affichage du message d'erreur -->
     <div id="erreurEmail" style="color: red; display: none;"></div>
