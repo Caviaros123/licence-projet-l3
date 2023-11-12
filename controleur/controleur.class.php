@@ -66,6 +66,7 @@ class Controleur {
             header('Location: confirmation_cookie.php');
         }
     
+    }
 
     
 
