@@ -12,6 +12,7 @@
 
     <h1>Enquête de Satisfaction</h1>
     <form action="enregistrer_enquete.php" method="post">
+
         <label for="id_sejour">Numero du Séjour :</label> <br>
         <input type="number" name="id_sejour" id="id_sejour" required>
         <br>

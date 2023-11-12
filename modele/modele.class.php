@@ -112,7 +112,7 @@ public function SejoursMoyennesNotes() {
         include 'vues/vue_enquete_1.php';
     }
 
-
+    /*
     public function setCookie($name, $value, $days) {
         setcookie($name, $value, time() + (86400 * $days), "/");
     }
@@ -122,23 +122,8 @@ public function SejoursMoyennesNotes() {
             return $_COOKIE[$name];
         }
         return "";
-    }
-
-    public function stockerEnqueteDansCookies($nom, $prenom, $satisfaction) {
-        // Utilisation de la méthode setCookie pour stocker les données dans des cookies
-        $this->setCookie("enquete_nom", $nom, 30); // Stocke le nom dans un cookie pendant 30 jours
-        $this->setCookie("enquete_prenom", $prenom, 30); // Stocke le prénom dans un cookie pendant 30 jours
-        $this->setCookie("enquete_satisfaction", $satisfaction, 30); // Stocke la satisfaction dans un cookie pendant 30 jours
-    }
-    
-    public function recupererEnqueteCookies() {
-        // Utilisation de la méthode getCookie pour récupérer la note et le commentaire depuis les cookies
-        $note = $this->getCookie("enquete_note");
-        $commentaire = $this->getCookie("enquete_commentaire");
-        return ['note' => $note, 'commentaire' => $commentaire];
-    }
-    
-
+    } 
+    */
 }
 
 ?>
