@@ -9,13 +9,14 @@ class User {
     }
 
     public function renseigner($tab) {
+        var_dump($tab);
         $this->iduser = (isset($tab['iduser'])) ? $tab['iduser'] : 0;
         $this->nom = $tab['nom'];
         $this->prenom = $tab['prenom'];
         $this->age = $tab['age'];
         $this->email = $tab['email'];
         $this->telephone = $tab['telephone'];
-        $this->mdp = $tab['mdp']; 
+        $this->mdp = $tab['mdp'];
         $this->dateInscription = (isset($tab['dateInscription'])) ? $tab['dateInscription'] : 0;
     }
     
