@@ -129,7 +129,7 @@ class Modele {
         include 'vues/vue_enquete_1.php';
     }
 
-    /*
+
     public function setCookie($name, $value, $days) {
         setcookie($name, $value, time() + (86400 * $days), "/");
     }

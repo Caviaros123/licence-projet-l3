@@ -43,7 +43,6 @@ class Controleur {
         return $this->unModele->getEnquete();
     }
 
-    
     public function SejoursMoyennesNotes() {
         $tab = $this->unModele->SejoursMoyennesNotes(); // Récupérez les données du modèle
 
@@ -54,23 +53,6 @@ class Controleur {
         return $this->unModele->SejoursMoyennesNotes();
     }
     
-    public function enregistrerEnquete($tab) {
-            // Capturez les données soumises
-            $note = $tab["note"];
-            $commentaire = $tab["commentaire"];
-        
-            // Appelez la méthode du modèle pour enregistrer l'enquête
-            $this->unModele->enregistrerEnquete($note, $commentaire);
-    
-            // Redirigez vers une page de confirmation
-            header('Location: confirmation_cookie.php');
-        }
-    
-    }
-
-    
-
-    /*
     public function afficherFormulaire() {
         // Récupérez les données du formulaire d'enquête depuis les cookies
         $enqueteData = $this->unModele->recupererEnqueteDepuisCookies();
