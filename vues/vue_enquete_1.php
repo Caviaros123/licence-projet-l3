@@ -4,7 +4,6 @@
 
     $sejours = $unControleur->getSejours();
 
-    var_dump($sejours[0]['id_sejour']);
 ?>
 
 <div class="container p-5">

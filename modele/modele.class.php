@@ -4,7 +4,7 @@ class Modele {
 
     public function __construct() {
         try {
-            $url = "mysql:host=localhost;dbname=wmd_23";
+            $url = "mysql:host=localhost;dbname=wmd_23;charset=utf8";
             $user = "root";
             $mdp = "root";
             $this->unPdo = new PDO($url, $user, $mdp);
@@ -39,8 +39,8 @@ class Modele {
         $select = $this->unPdo->prepare($requete);
         $select->execute([":email" => $email]);
         $utilisateur = $select->fetch();
-
-        if ($utilisateur && password_verify($mdp, $utilisateur['mdp_utilisateur'])) {
+    
+        if ($utilisateur && isset($utilisateur['mdp_utilisateur']) && password_verify($mdp, $utilisateur['mdp_utilisateur'])) {
             // Connexion réussie
             unset($utilisateur['mdp_utilisateur']);
             return $utilisateur;
@@ -49,6 +49,7 @@ class Modele {
             return null;
         }
     }
+    
 
     // get sejours
     public function getSejours() {
@@ -77,20 +78,26 @@ class Modele {
     }
     
     public function enregistrerEnquete($tab) {
-        // Utilisation de la fonction MySQL NOW() pour la date actuelle
-        $requete = "INSERT INTO Evaluations (id_sejour, note, commentaire, date_evaluation, id_utilisateur) VALUES (:id_sejour, :note, :commentaire, NOW(), :id_utilisateur)";
-
-        $donnees = array(
-            ":id_sejour" => $tab["id_sejour"],
-            ":note" => $tab["note"],
-            ":commentaire" => $tab["commentaire"],
-            ":id_utilisateur" => $tab["user"]
-        );
-
-        $select = $this->unPdo->prepare($requete);
-        $select->execute($donnees);
+        // Assurez-vous que la clé "user" existe dans le tableau et n'est pas NULL
+        if (isset($tab["user"]) && $tab["user"] !== null) {
+            // Utilisation de la fonction MySQL NOW() pour la date actuelle
+            $requete = "INSERT INTO Evaluations (id_sejour, note, commentaire, date_evaluation, id_utilisateur) VALUES (:id_sejour, :note, :commentaire, NOW(), :id_utilisateur)";
+    
+            $donnees = array(
+                ":id_sejour" => $tab["id_sejour"],
+                ":note" => $tab["note"],
+                ":commentaire" => $tab["commentaire"],
+                ":id_utilisateur" => $tab["user"]
+            );
+    
+            $select = $this->unPdo->prepare($requete);
+            $select->execute($donnees);
+        } else {
+            // Gérez le cas où la clé "user" est absente ou NULL
+            echo "Erreur : ID utilisateur manquant ou non valide.";
+        }
     }
-
+    
     public function SejoursMoyennesNotes() {
         $requete = "SELECT Sejours.id_sejour, station_Sejour, AVG(Evaluations.Note) AS MoyenneNote
                     FROM Sejours

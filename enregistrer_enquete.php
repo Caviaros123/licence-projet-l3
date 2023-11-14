@@ -7,15 +7,19 @@ if (isset($_POST["SoumettreEnquete"])) {
     $note = $_POST["note"];
     $commentaire = $_POST["commentaire"];
     $id_sejour = $_POST["id_sejour"];
-    $user = json_decode($_COOKIE["user"]);
 
+    // Vérifier si la clé 'user' existe dans le cookie
+    $user = isset($_COOKIE["user"]) ? json_decode($_COOKIE["user"]) : null;
+
+    // Vérifier si la clé 'id_utilisateur' existe dans l'objet utilisateur
+    $idUser = isset($user->id_utilisateur) ? $user->id_utilisateur : null;
 
     // Créer un tableau avec les données de l'enquête
     $donneesEnquete = [
         "note" => $note,
         "commentaire" => $commentaire,
         "id_sejour" => $id_sejour,
-        "user" => $user->id_utilisateur
+        "user" => $idUser
     ];
 
     // Instancier le contrôleur
