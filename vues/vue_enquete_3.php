@@ -12,20 +12,25 @@
         que leurs opinions sur différents aspects de leur expérience. Merci de prendre le temps de remplir cette 
         enquête et de partager votre avis avec nous.</p>
 
-    <h1>Enquête de Satisfaction des séjours</h1>
-    <form action="enregistrer_enquete.php" method="post" class="form">
-        <label for="id_sejour">Numero du Séjour :</label> <br>
-        <!-- select getSejours -->
-        <select name="id_sejour" id="id_sejour" class="form-input form-control pb-3" required>
-            <option value="Choisir un séjour" hidden>Choisir un séjour</option>
-            <?php
-                foreach ($sejours as $sejour) {
-                    echo "<option value='" . $sejour['id_sejour'] . "'>" . $sejour['id_sejour'] . "</option>";
-                }
-            ?>
-        </select>
-        <br>
+    <h1>Enquête de Satisfaction volontariat</h1>
+    <!-- grille des differents organismes de donations: enfants, handicapé, cancer etc  -->
+    <div class="grid p-3 gap-3 text-center grid-container d-flex">
+        <?php
+            $organismes = $unControleur->getOrganismes();
 
+            foreach ($organismes as $i => $organisme) {
+                echo "<div class='grid-item card p-3'>";
+                echo "<img src='" . $organisme['image'] . "' alt='" . $organisme['nom'] . "'>";
+                echo "<h6>" . $organisme['nom'] . "</h6>";
+                echo "<br>";
+                $radio_id = "note_$i";
+                // radio buttons to check each organism
+                echo "<input class='form-check-input' type='radio' name='organisme' id='$radio_id' value='$i'> $i";
+                echo "</div>";
+            }
+        ?>
+    </div>
+    <form action="enregistrer_enquete_3.php" method="post" class="form">
         <label for ="note">Note (de 1 à 10) :</label> <br>
         <input class="form-input form-control pb-3" type="number" name="note" id="note" min="1" max="10" required>
         <br>

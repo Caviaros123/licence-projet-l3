@@ -1,111 +1,164 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Projet wmd_23</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <!-- // bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <!-- // jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- // bootstrap js -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <!--  fav icon -->
+    <link rel="icon" href="public/images/logo-black.png" />
+    <title>WeMake Donation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+
 </head>
 <body>
-    <!-- flex nav  -->
-<nav class="navbar m-auto w-50 navbar-expand-sm bg-dark navbar-dark">
-    <ul class="nav nav-tabs">
-        <li><a href="index.php?page=1">Accueil</a></li>
-        <li><a href="index.php?page=4">Stat</a></li>
-        <li><a href="index.php?page=5">Enquetes</a>
-        <li><a href="index.php?page=3">Se Connecter</a></li>
-        <li><a href="index.php?page=2">Inscription</a></li>
-    </ul>
-    <!--  show user cookie data -->
-</nav>
-<center>
-    <div class="flex">
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="navbar-brand nav-link" href="index.php?page=1">
+                    <img src="public/images/logo-black.png" alt="logo" style="width:60px;">
+                </a>
+            </li>
+            <li class="nav-item"><a class='nav-link' href="index.php?page=1">Accueil</a></li>
+            <!-- hidden if not logged in -->
+            <?php
+                if(isset($_COOKIE['user'])){
+                    echo "<li class='nav-item'><a class='nav-link' href='index.php?page=5'>Enquetes</a>";
+                    echo "<li class='nav-item'><a class='nav-link' href='index.php?page=4'>Statistiques</a></li>";
+                }
+            ?>
+            <!--  hidden login -->
+            <?php
+                if(isset($_COOKIE['user'])){
+                    echo "<li class='nav-item'><a class='nav-link' href='index.php?page=3'>Deconnexion</a></li>";
+                }else{
+                    echo "<li class='nav-item'><a class='nav-link' href='index.php?page=3'>Connexion</a></li>";
+                    echo "<li class='nav-item'><a class='nav-link' href='index.php?page=2'>Inscription</a></li>";
+                }
+            ?>
 
-        <h1>Bienvenue sur</h1> 
-        <h1>WeMake Donation</h1>
-        <!-- position right -->
-        <div class="b h4">
+            <!--  logged in user with avatar justify end -->
             <?php
                 if(isset($_COOKIE['user'])){
                     $user = json_decode($_COOKIE['user']);
-                    echo "Bienvenue ".$user->prenom." ".$user->nom;
+                
+                    echo "<li class='nav-item justify-content-end'><a class='nav-link' href='index.php?page=3'><img src='https://www.gravatar.com/avatar/zelubce' alt='avatar' style='width:30px;'>
+                        ".$user->email."
+                    </a></li>";
                 }
             ?>
+        </ul>
+        <!--  show user cookie data -->
+    </nav>
+    <center>
+        <div class="flex">
+
+            <h1>Bienvenue sur</h1>
+            <!-- position right -->
+            <div class="b h4">
+                <?php
+                    if(isset($_COOKIE['user'])){
+                        $user = json_decode($_COOKIE['user']);
+                        echo "Bienvenue ".$user->prenom." ".$user->nom;
+                    }
+                ?>
+            </div>
         </div>
-    </div>
-<br>
-<div class="container">
-    <p class="lead">WeMake Donation est une plateforme dédiée aux dons en ligne, facilitant le processus de collecte de fonds pour des causes importantes. Notre mission est de connecter les donateurs généreux avec des projets significatifs et des organisations à but non lucratif.</p>
+        <br>
 
-    <p>Nous croyons en la puissance de l'impact positif que les dons peuvent avoir sur des initiatives variées, qu'il s'agisse de soutenir des causes sociales, des projets communautaires, des organisations caritatives ou des actions humanitaires.</p>
+        <?php
+        require_once("controleur/user.class.php");
+        require_once("controleur/controleur.class.php");
 
-    <p>Sur WeMake Donation, vous pouvez découvrir une variété de campagnes, partager votre soutien et contribuer financièrement à des projets qui vous tiennent à cœur. Chaque don compte et fait avancer des initiatives qui font une différence dans le monde.</p>
+        // Instanciez la classe Controleur
+        $unControleur = new Controleur();
 
-    <p>Nous vous invitons à explorer les campagnes en cours, à partager l'amour et à être une partie active du changement. Ensemble, faisons de grands gestes qui ont un impact durable.</p>
-
-    <p class="text-muted">Merci de faire partie de WeMake Donation, où chaque don compte.</p>
-</div>
-
-
-    <?php
-	require_once("controleur/user.class.php");
-    require_once("controleur/controleur.class.php");
-
-    // Instanciez la classe Controleur
-    $unControleur = new Controleur();
-
-
-    $page = (isset($_GET['page'])) ? $_GET['page'] : 1;
-    switch($page){
-        case 1: {
-            require_once("index.php");
-        }break;
-        case 2: {
-
-            if(isset($_POST['Valider'])){
-                $user = new User();
-                $user->renseigner($_POST);
-                $userJson = $user->toJson();
-                setcookie("user", $userJson, time()+3600);
-                var_dump("APPAPAPAPA ====>> ".$user->toJson());
-;
-                $unControleur->inscription($user->serialiser());
+        $page = (isset($_GET['page'])) ? $_GET['page'] : 1;
+        switch($page){
+            case 1: {
+                require_once("vues/vue_index.php");
+                require_once("index.php");
             }
-            require_once("vues/vue_inscription.php");
-        }break;
-        case 3: {
-            if(isset($_POST['seConnecter'])){
-                $email = $_POST['email'];
-                $mdp = $_POST['mdp'];
-        
-                $user = $unControleur->connexion($email, $mdp);
-        
-                if($user){
-                    $userJson = json_encode($user);
-                    setcookie("user",$userJson, time()+3600);
-                    header('Location: index.php?page=1');
-                }else{
-                    // red
-                    echo "<div class='alert alert-danger w-25'>Email ou mot de passe incorrect</div>";
+            break;
+            case 2: {
+
+                if(isset($_POST['Valider'])){
+                    $user = new User();
+                    $user->renseigner($_POST);
+                    $userJson = $user->toJson();
+                    setcookie("user", $userJson, time()+3600);
+    ;
+                    $unControleur->inscription($user->serialiser());
                 }
+                require_once("vues/vue_inscription.php");
             }
-            require_once("vues/vue_connexion.php");
-        }break;
-        case 4: {
-            require_once("vues/vue_users.php");
-        }break;
-        case 5: {
-            $unControleur = new Controleur();
-            require_once("vues/vue_enquete_1.php");
-        }break;
+            break;
+            case 3: {
+                // deconnexion
+                if(isset($_COOKIE['user'])){
+                    setcookie("user", "", time()-3600);
+                    header('Location: index.php?page=1');
+                }
+                if(isset($_POST['seConnecter'])){
+                    $email = $_POST['email'];
+                    $mdp = $_POST['mdp'];
+            
+                    $user = $unControleur->connexion($email, $mdp);
+            
+                    if($user){
+                        $userJson = json_encode($user);
+                        setcookie("user",$userJson, time()+3600);
+                        header('Location: index.php?page=1');
+                    }else{
+                        // red
+                        echo "<div class='alert alert-danger w-25'>Email ou mot de passe incorrect</div>";
+                    }
+                }
+                require_once("vues/vue_connexion.php");
+            }
+            break;
+            case 4: {
+                require_once("vues/vue_users.php");
+            }
+            break;
+            case 5: {
+                $unControleur = new Controleur();
+                require_once("vues/vue_enquete.php");
+            }
+            break;
+            case 7: {
+                $unControleur = new Controleur();
+                require_once("vues/vue_enquete_1.php");
+            }
+            break;
+            case 8: {
+                $unControleur = new Controleur();
+                require_once("vues/vue_enquete_2.php");
+            }
+            break;
+            case 9: {
+                $unControleur = new Controleur();
+                require_once("vues/vue_enquete_3.php");
+            }
+            break;
+            case 10: {
+                $unControleur = new Controleur();
+                require_once("vues/vue_confirmation.php");
+            }
+            break;
+            default: {
+                require_once("vues/vue_index.php");
+            }
 
-    }
-    ?>
-</center>
+        }
+        ?>
+    </center>
+
 </body>
+<!-- footer -->
+<footer class="bg-light text-center text-lg-start fixed-bottom">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0);">
+        <a class="text-dark" href="https://wemakedonation.com/">wemakedonation.com</a>
+    </div>
+</footer>
 </html>

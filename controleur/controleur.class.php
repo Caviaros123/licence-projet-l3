@@ -62,6 +62,12 @@ class Controleur {
         // Affichez le formulaire avec les données récupérées
         include 'vues/vue_enquete_2.php';
     }
+
+    public function getOrganismes() {
+        return $this->unModele->getOrganismes();
+    }
+
+    
     
 }
 

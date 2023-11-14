@@ -191,6 +191,45 @@ class Modele {
         $select->execute();
         return $select->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getOrganismes() {
+        $requete = [
+            "croix-rouge-et-croissant-rouge" => [
+                "nom" => "Croix-Rouge et Croissant-Rouge",
+                "image" => "https://api.freelogodesign.org/assets/blog/img/094c598b5b6e4cc79cd9fc25b7db9f25.png"
+            ],
+            "medecins-sans-frontieres" => [
+                "nom" => "Médecins Sans Frontières (MSF)",
+                "image" => "medecins-sans-frontieres.png"
+            ],
+            "world-food-programme" => [
+                "nom" => "World Food Programme (PAM)",
+                "image" => "world-food-programme.png"
+            ],
+            "amnesty-international" => [
+                "nom" => "Amnesty International",
+                "image" => "amnesty-international.png"
+            ],
+            "greenpeace" => [
+                "nom" => "Greenpeace",
+                "image" => "greenpeace.png"
+            ],
+            "unicef" => [
+                "nom" => "UNICEF (Fonds des Nations Unies pour l'Enfance)",
+                "image" => "unicef.png"
+            ],
+            "habitat-for-humanity" => [
+                "nom" => "Habitat for Humanity",
+                "image" => "habitat-for-humanity.png"
+            ],
+            "islamic-relief-worldwide" => [
+                "nom" => "Islamic Relief Worldwide",
+                "image" => "islamic-relief-worldwide.png"
+            ]
+        ];
+
+        return $requete;
+    }
     
 
 }
