@@ -19,7 +19,12 @@ if (isset($_POST["SoumettreEnquete"])) {
     $donneesEnquete = [
         "note" => $note,
         "commentaire" => $commentaire,
-        "id_sejour" => $id_sejour,
+        //"id_sejour" => $id_sejour, // fixme : a remplacer par type: sejour, donnation, volontariat
+        "type" => "sejour", // type: sejour, donnation, volontariat
+        "meta" => json_encode([
+            "id" => $id_sejour,
+            "nom" => "sejour",
+        ]),
         "user" => $idUser
     ];
 
