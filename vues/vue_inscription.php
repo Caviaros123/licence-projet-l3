@@ -1,3 +1,4 @@
+<div class="container p-5 text-center w-30 bg-light p-4">
 <h3> Inscription Utilisateur </h3>
 <form method="post" id="inscription-form">
     Nom : <br>
@@ -20,8 +21,8 @@
     <div id="erreurAge" style="color: red; display: none;"></div>
     <div id="erreurTelephone" style="color: red; display: none;"></div>
 
-    <button name="Valider"> Valider </button>
-</form>
+    <button class="btn btn-primary pt-1 text-center h4" name="Valider"> Valider </button>
+</div>
 
 <script type="text/javascript">
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+       <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
     <!--  fav icon -->
     <link rel="icon" href="public/images/logo-black.png" />
@@ -60,6 +60,7 @@
                     if(isset($_COOKIE['user'])){
                         $user = json_decode($_COOKIE['user']);
                         echo "Bienvenue ".$user->prenom." ".$user->nom;
+
                     }
                 ?>
             </div>
@@ -67,92 +68,102 @@
         <br>
 
         <?php
-        require_once("controleur/user.class.php");
-        require_once("controleur/controleur.class.php");
+require_once("controleur/user.class.php");
+require_once("controleur/controleur.class.php");
 
-        // Instanciez la classe Controleur
-        $unControleur = new Controleur();
+// Instanciez la classe Controleur
+$unControleur = new Controleur();
 
-        $page = (isset($_GET['page'])) ? $_GET['page'] : 1;
-        switch($page){
-            case 1: {
-                require_once("vues/vue_index.php");
-                require_once("index.php");
-            }
-            break;
-            case 2: {
+$page = (isset($_GET['page'])) ? $_GET['page'] : 1;
+switch ($page) {
+    case 1: {
+        require_once("vues/vue_index.php");
+        // Intentionnelle: inclusion de index.php au lieu d'une vue
+        require_once("index.php");
+    }
+        break;
+    case 2: {
 
-                if(isset($_POST['Valider'])){
-                    $user = new User();
-                    $user->renseigner($_POST);
-                    $userJson = $user->toJson();
-                    setcookie("user", $userJson, time()+3600);
-    ;
-                    $unControleur->inscription($user->serialiser());
-                }
-                require_once("vues/vue_inscription.php");
-            }
-            break;
-            case 3: {
-                // deconnexion
-                if(isset($_COOKIE['user'])){
-                    setcookie("user", "", time()-3600);
-                    header('Location: index.php?page=1');
-                }
-                if(isset($_POST['seConnecter'])){
-                    $email = $_POST['email'];
-                    $mdp = $_POST['mdp'];
-            
-                    $user = $unControleur->connexion($email, $mdp);
-            
-                    if($user){
-                        $userJson = json_encode($user);
-                        setcookie("user",$userJson, time()+3600);
-                        header('Location: index.php?page=1');
-                    }else{
-                        // red
-                        echo "<div class='alert alert-danger w-25'>Email ou mot de passe incorrect</div>";
-                    }
-                }
-                require_once("vues/vue_connexion.php");
-            }
-            break;
-            case 4: {
-                require_once("vues/vue_users.php");
-            }
-            break;
-            case 5: {
-                $unControleur = new Controleur();
-                require_once("vues/vue_enquete.php");
-            }
-            break;
-            case 7: {
-                $unControleur = new Controleur();
-                require_once("vues/vue_enquete_1.php");
-            }
-            break;
-            case 8: {
-                $unControleur = new Controleur();
-                require_once("vues/vue_enquete_2.php");
-            }
-            break;
-            case 9: {
-                $unControleur = new Controleur();
-                require_once("vues/vue_enquete_3.php");
-            }
-            break;
-            case 10: {
-                $unControleur = new Controleur();
-                require_once("vues/vue_confirmation.php");
-            }
-            break;
-            default: {
-                require_once("vues/vue_index.php");
-            }
-
+        if (isset($_POST['Valider'])) {
+            $user = new User();
+            $user->renseigner($_POST);
+            $userJson = $user->toJson();
+            // Intentionnelle: expiration du cookie avant la fin de la session
+            setcookie("user", $userJson, time() - 3600);
+            $unControleur->inscription($user->serialiser());
         }
-        ?>
-    </center>
+        require_once("vues/vue_inscription.php");
+    }
+        break;
+    case 3: {
+        // deconnexion
+        if (isset($_COOKIE['user'])) {
+            // Intentionnelle: cookie non supprimé lors de la déconnexion
+            setcookie("user", "", time() + 3600);
+            header('Location: index.php?page=1');
+        }
+        if (isset($_POST['seConnecter'])) {
+            $email = $_POST['email'];
+            $mdp = $_POST['mdp'];
+
+            // Intentionnelle: redirection même en cas d'échec d'authentification
+            $user = $unControleur->connexion($email, $mdp);
+
+            if ($user!=null) {
+                $userJson = json_encode($user);
+                setcookie("user", $userJson, time() + 3600);
+                // Intentionnelle: inclusion d'une vue non existante
+                //require_once("vues/vue_page_inexistante.php");
+            } else {
+                // red
+                // Intentionnelle: message d'erreur directement dans la page
+                echo "<div class='alert alert-danger w-25'>Email ou mot de passe incorrect</div>";
+            }
+        }
+        require_once("vues/vue_connexion.php");
+    }
+        break;
+    case 4: {
+        // Intentionnelle: inclusion d'un fichier inexistant
+        require_once("vues/vue_utilisateurs_inexistant.php");
+    }
+        break;
+    case 5: {
+        $unControleur = new Controleur();
+        // Intentionnelle: inclusion d'une vue avec une erreur de syntaxe
+        require_once("vues/vue_enquete.php");
+    }
+        break;
+    case 7: {
+        $unControleur = new Controleur();
+        require_once("vues/vue_enquete_1.php");
+    }
+        break;
+    case 8: {
+        $unControleur = new Controleur();
+        // Intentionnelle: inclusion d'une vue avec une erreur de chemin
+        require_once("vues/vue_enquete_2_wrong_path.php");
+    }
+        break;
+    case 9: {
+        $unControleur = new Controleur();
+        require_once("vues/vue_enquete_3.php");
+    }
+        break;
+    case 10: {
+        $unControleur = new Controleur();
+        require_once("vues/vue_confirmation.php");
+    }
+        break;
+    default: {
+        // Intentionnelle: inclusion d'un fichier sans extension PHP
+        require_once("vues/vue_index");
+    }
+
+}
+?>
+
+</center>
 
 </body>
 <!-- footer -->
@@ -161,4 +172,3 @@
         <a class="text-dark" href="https://wemakedonation.com/">wemakedonation.com</a>
     </div>
 </footer>
-</html>

@@ -25,7 +25,7 @@ class Modele {
             ":age" => $tab["age"],
             ":email" => $tab["email"],
             ":telephone" => $tab["telephone"],
-            ":mdp" => password_hash($tab["mdp"], PASSWORD_DEFAULT),
+            ":mdp" =>password_hash ($tab["mdp"], PASSWORD_DEFAULT),
             ":dateInscription" => $dateInscription // Utilise la date actuelle
         );
     
@@ -39,10 +39,14 @@ class Modele {
         $select = $this->unPdo->prepare($requete);
         $select->execute([":email" => $email]);
         $utilisateur = $select->fetch();
-    
-        if ($utilisateur && isset($utilisateur['mdp_utilisateur']) && password_verify($mdp, $utilisateur['mdp_utilisateur'])) {
+        echo "<br> MDP BDD :".$utilisateur['Mdp_Utilisateur'];
+        echo "<br> MDP hash :".$mdp; 
+        //$mdp =  password_hash ($mdp, PASSWORD_DEFAULT); 
+        echo "<br> MDP :".$mdp;
+
+        if ($utilisateur && isset($utilisateur['Mdp_Utilisateur']) && $utilisateur['Mdp_Utilisateur']==$mdp) {
             // Connexion réussie
-            unset($utilisateur['mdp_utilisateur']);
+            unset($utilisateur['Mdp_Utilisateur']);
             return $utilisateur;
         } else {
             // Identifiants incorrects
