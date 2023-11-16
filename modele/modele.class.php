@@ -204,27 +204,27 @@ class Modele {
             ],
             "medecins-sans-frontieres" => [
                 "nom" => "Médecins Sans Frontières (MSF)",
-                "image" => "medecins-sans-frontieres.png"
+                "image" => "https://upload.wikimedia.org/wikipedia/fr/thumb/6/69/MSF.svg/281px-MSF.svg.png?20070729134131"
             ],
             "world-food-programme" => [
                 "nom" => "World Food Programme (PAM)",
-                "image" => "world-food-programme.png"
+                "image" => "https://cdn.wfp.org/guides/ui/v1.0.0/assets/logos/standard/en/wfp-logo-standard-blue-en.svg"
             ],
             "amnesty-international" => [
                 "nom" => "Amnesty International",
-                "image" => "amnesty-international.png"
+                "image" => "https://c8.alamy.com/zoomsfr/9/58473c425a10401dac9b5e6947dd6b63/rt2j4j.jpg"
             ],
             "greenpeace" => [
                 "nom" => "Greenpeace",
-                "image" => "greenpeace.png"
+                "image" => "https://www.grainepaca.org/wp-content/uploads/2018/03/greenpeace-logo-450x300.jpg"
             ],
             "unicef" => [
                 "nom" => "UNICEF (Fonds des Nations Unies pour l'Enfance)",
-                "image" => "unicef.png"
+                "image" => "https://logos-marques.com/wp-content/uploads/2021/03/UNICEF-Logo-768x434.png"
             ],
             "habitat-for-humanity" => [
                 "nom" => "Habitat for Humanity",
-                "image" => "habitat-for-humanity.png"
+                "image" => "https://assets.stickpng.com/images/6234b2275c8816c7bbc9d9a4.png"
             ],
             "islamic-relief-worldwide" => [
                 "nom" => "Islamic Relief Worldwide",

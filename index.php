@@ -54,17 +54,19 @@
         <div class="flex">
 
             <h1>Bienvenue sur</h1>
+            
             <!-- position right -->
             <div class="b h4">
-                <?php
-                    if(isset($_COOKIE['user'])){
-                        $user = json_decode($_COOKIE['user']);
-                        echo "Bienvenue ".$user->prenom." ".$user->nom;
+    <?php
+        if(isset($_COOKIE['user'])){
+            $user = json_decode($_COOKIE['user']);
+            $nom = isset($user->nom) ? $user->nom : '';
+            $prenom = isset($user->prenom) ? $user->prenom : '';
+        }
+    ?>
+</div>
 
-                    }
-                ?>
-            </div>
-        </div>
+
         <br>
 
         <?php
@@ -142,7 +144,7 @@ switch ($page) {
     case 8: {
         $unControleur = new Controleur();
         // Intentionnelle: inclusion d'une vue avec une erreur de chemin
-        require_once("vues/vue_enquete_2_wrong_path.php");
+        require_once("vues/vue_enquete_2.php");
     }
         break;
     case 9: {

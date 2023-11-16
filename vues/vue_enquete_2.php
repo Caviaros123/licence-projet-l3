@@ -16,27 +16,27 @@
     <!-- grille des differents organismes de donations: enfants, handicapé, cancer etc  -->
     <div class="grid mt-5 mb-5 p-5 text-center grid-container d-flex gap-5">
         <div class="grid-item">
-            <img src="public/images/children.png" alt="children">
+            <img src="public/images/enfant.jpg" alt="children" style="width:100px;">
             <h3>Enfants</h3>
         </div>
         <div class="grid-item">
-            <img src="public/images/handicap.png" alt="handicap">
+            <img src="public/images/hadicap.jpg" alt="handicap" style="width:100px;">
             <h3>Handicap</h3>
         </div>
         <div class="grid-item">
-            <img src="public/images/cancer.png" alt="cancer">
+            <img src="public/images/cancer.jpg" alt="cancer" style="width:100px;">
             <h3>Cancer</h3>
         </div>
         <div class="grid-item">
-            <img src="public/images/education.png" alt="education">
+            <img src="public/images/education.jpg" alt="education" style="width:100px;">
             <h3>Education</h3>
         </div>
         <div class="grid-item">
-            <img src="public/images/animals.png" alt="animals">
+            <img src="public/images/animals.jpg" alt="animals" style="width:100px;">
             <h3>Animaux</h3>
         </div>
         <div class="grid-item">
-            <img src="public/images/elderly.png" alt="elderly">
+            <img src="public/images/agees.jpg" alt="elderly" style="width:100px;">
             <h3>Personnes agées</h3>
         </div>
     </div>

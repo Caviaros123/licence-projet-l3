@@ -7,10 +7,11 @@
 ?>
 
 <div class="container p-5">
-    <p>L'objectif de cette enquête de satisfaction est de recueillir des commentaires et des évaluations des 
-        clients après leur séjour. Nous cherchons à comprendre et à mesurer leur niveau de satisfaction, ainsi 
-        que leurs opinions sur différents aspects de leur expérience. Merci de prendre le temps de remplir cette 
-        enquête et de partager votre avis avec nous.</p>
+    <p>L'objectif principal de cette enquête est de recueillir des données significatives 
+        qui nous aideront à améliorer nos programmes de volontariat, à mieux répondre aux 
+        besoins des volontaires, et à renforcer l'impact positif de nos actions bénévoles 
+        dans la communauté..</p>
+        <p>Nous vous remercions sincèrement de votre participation. Votre voix compte, et votre engagement envers le volontariat est une source d'inspiration. Ensemble, nous travaillons à créer un impact positif et durable dans notre communauté.</p>
 
     <h1>Enquête de Satisfaction volontariat</h1>
     <!-- grille des differents organismes de donations: enfants, handicapé, cancer etc  -->
