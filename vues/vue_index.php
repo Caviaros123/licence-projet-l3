@@ -1,51 +1,87 @@
-<div class="container">
-    <!--  logo center -->
-    <div class="text-center">
+<div class="container text-center">
+   <!--  logo center -->
+   <div class="text-center">
         <img src="public/images/logo-black.png" alt="logo" style="width:350px;">
     </div>
-
-
-   
-    <p class="lead">WeMake Donation est une plateforme dédiée aux dons en ligne, facilitant le processus de collecte de fonds pour des causes importantes. Notre mission est de connecter les donateurs généreux avec des projets significatifs et des organisations à but non lucratif.</p>
-
-        <br>
-        <br>
-        <br>
-        <br>
-
-        <div class="container text-center">
-  <div class="row">
-    <div class="col">
-    <img src="public/images/donnation.jpg" alt="enfant_eau" class="img-fluid rounded" style="max-width: 80%;">
+    <br>
+    <div class="row">
+        <div class="col">
+            <div class="card mb-3">
+                <div class="row">
+                    <div class="col">
+                        <img src="public/images/donnation.jpg" alt="enfant_eau" class="card-img-top" style="max-width: 50%;">
+                    </div>
+                    <div class="col">
+                        <img src="public/images/enfant_inde.jpg" alt="ecole" class="card-img-top" style="max-width: 75%;">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text lead">
+                        Nous croyons en la puissance de l'impact positif que les dons peuvent avoir sur des initiatives variées, qu'il s'agisse de soutenir des causes sociales, des projets communautaires, des organisations caritatives ou des actions humanitaires.
+                    </p>
+                    <p class="card-text lead">
+                        Sur WeMake Donation, vous pouvez découvrir une variété de campagnes, partager votre soutien et contribuer financièrement à des projets qui vous tiennent à cœur. Chaque don compte et fait avancer des initiatives qui font une différence dans le monde.
+                    </p>
+                    <p class="card-text lead">
+                        Nous vous invitons à explorer les campagnes en cours, à partager l'amour et à être une partie active du changement. Ensemble, faisons de grands gestes qui ont un impact durable.
+                    </p>
+                    <p class="card-text lead text-muted">Merci de faire partie de WeMake Donation, où chaque don compte.</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col">
-    <p>Nous croyons en la puissance de l'impact positif que les dons peuvent avoir sur des initiatives variées, qu'il s'agisse de soutenir des causes sociales, des projets communautaires, des organisations caritatives ou des actions humanitaires.</p>
+</div>
 
-    <p>Sur WeMake Donation, vous pouvez découvrir une variété de campagnes, partager votre soutien et contribuer financièrement à des projets qui vous tiennent à cœur. Chaque don compte et fait avancer des initiatives qui font une différence dans le monde.</p>
 
-    <p>Nous vous invitons à explorer les campagnes en cours, à partager l'amour et à être une partie active du changement. Ensemble, faisons de grands gestes qui ont un impact durable.</p>
-
-    <p class="text-muted">Merci de faire partie de WeMake Donation, où chaque don compte.</p>    </div>
+  <br>
+  <br>
+  <div class="container text-center">
+    <h1 class="display-6 text-start">Qui sommes-nous :</h1>
+    <div class="card">
+        <div class="card-body">
+            <p class="lead">
+                Initiée par deux étudiants en 3e année de développement web, notre projet vise à lutter contre la pauvreté dans le monde et à sauver des vies.
+            </p>
+            <p class="lead">
+                Nous sommes profondément conscients des défis liés à la pauvreté qui touchent des millions de personnes à travers le globe. Chaque don que vous faites contribue à alléger ces difficultés, que ce soit en fournissant un abri, de la nourriture, des soins médicaux, ou en soutenant des projets éducatifs.
+            </p>
+            <p class="lead">
+                Chaque année, des milliers de vies sont sauvées grâce à la générosité de personnes comme vous. Votre soutien financier, aussi modeste soit-il, peut faire une différence significative. Nous collaborons avec des organisations caritatives pour mener des campagnes de dons qui ciblent des projets humanitaires dans le but de créer un monde où personne ne doit vivre dans la pauvreté.
+            </p>
+            <p class="lead">
+                Nos services incluent des campagnes de dons dédiées à des causes variées, la gestion transparente de projets, une interface interactive, un tableau de bord administratif, une application Android pour des dons en déplacement, et une sécurisation des transactions en ligne.
+            </p>
+            <p class="lead">
+                Nous vous invitons à explorer nos campagnes, à partager l'amour, et à être une partie active du changement. Ensemble, faisons de grands gestes qui ont un impact durable sur la réduction de la pauvreté et le sauvetage de vies.
+            </p>
+            <p class="lead">
+                Chaque don compte et rapproche le monde d'un avenir où la générosité change des vies.
+            </p>
+            <p class="lead">
+                Si vous souhaitez soutenir notre plateforme et les développeurs, vous pouvez faire un don via PayPal :
+                <a href="https://paypal.me/cestpourlafamille?country.x=FR&locale.x=fr_FR" target="_blank">Faire un don via PayPal</a>
+            </p>
+        </div>
+    </div>
   </div>
 
-  <br>
-  <br>
-  <h1 class="display-6 text-start">Nos Services</h1>
-  <br>
-  <br>
 
+        <br>
+        <br>
 
-  <div class="row">
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img src="public/images/image_don.png" class="card-img-top" alt="image_donation" style="width:287px;">
-        <div class="card-body">
-          <h5 class="card-title">Donnation</h5>
-          <p class="card-text">Chaque don, aussi modeste soit-il, constitue un maillon essentiel dans la chaîne de la bienveillance.</p>
-          <a href="#" class="btn btn-primary">Cliquez ici</a>
-        </div>
-      </div>
-    </div>
+        <h1 class="display-6 text-start">Nos Services :</h1> 
+        <br> 
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="public/images/image_don.png" class="card-img-top" alt="image_donation" style="width:287px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Donnation</h5>
+                        <p class="card-text">Chaque don, aussi modeste soit-il, constitue un maillon essentiel dans la chaîne de la bienveillance.</p>
+                        <a href="#" class="btn btn-primary">Cliquez ici</a>
+                    </div>
+                </div>
+            </div>
 
     <div class="col">
       <div class="card" style="width: 18rem;">
@@ -116,5 +152,7 @@
     </div>
 
   </div>
+  <br>
+  <br>
 
 </div>
