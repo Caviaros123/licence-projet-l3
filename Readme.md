@@ -46,6 +46,13 @@ Ajustez les images de l'enquete Volontariat
 Regler le soucis avec l'inscription.
 Modifier le ppt (canva).
 
+## Comment envoyer son code sur GitHub :
+
+git status
+git add . 
+git status
+git commit -m ""
+git push origin neal 
 ---
 
 *WeMakeDonation - Faites une différence, un don à la fois.*

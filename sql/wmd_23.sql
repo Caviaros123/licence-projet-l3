@@ -78,7 +78,7 @@ CREATE TABLE utilisateurs (
     age INT,
     mdp_utilisateur VARCHAR(255),
     telephone VARCHAR(255) UNIQUE NOT NULL,
-    date_inscription DATE,
+    date_inscription DATETIME,
     id_role INT,
     PRIMARY KEY (id_utilisateur),
     FOREIGN KEY (id_role) REFERENCES roles(id_role)
