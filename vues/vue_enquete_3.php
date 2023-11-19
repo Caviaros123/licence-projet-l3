@@ -21,7 +21,7 @@
 
             foreach ($organismes as $i => $organisme) {
                 echo "<div class='grid-item card p-3'>";
-                echo "<img src='" . $organisme['image'] . "' alt='" . $organisme['nom'] . "'>";
+                echo "<img src='" . $organisme['image'] . "' alt='" . $organisme['nom'] . "' style='width: 100%; height: auto;'>";
                 echo "<h6>" . $organisme['nom'] . "</h6>";
                 echo "<br>";
                 $radio_id = "note_$i";

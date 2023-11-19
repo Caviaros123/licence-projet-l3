@@ -196,6 +196,8 @@ class Modele {
         return $select->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    
+
     public function getOrganismes() {
         $requete = [
             "croix-rouge-et-croissant-rouge" => [

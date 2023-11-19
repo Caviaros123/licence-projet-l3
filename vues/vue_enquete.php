@@ -7,6 +7,12 @@
 ?>
 
 <div class="container p-5">
+    
+
+    <h1>Enquête de Satisfaction</h1>
+    <br>
+
+    <!--  liste des services a enqueter -->
     <p>L'objectif principal de notre enquête, c'est de tirer des infos utiles en 
         posant des questions bien ciblées à un groupe de personnes. On cherche à 
         comprendre <b>vos avis</b>, <b>vos expériences</b>, ou même à mesurer <b>vos satisfaction</b>. 
@@ -16,9 +22,7 @@
         fonctionnent bien. C'est comme une manière directe d'entendre ce que les gens 
         pensent et ce dont ils ont besoin. Ça nous donne un sacré coup de main pour avoir 
         une idée claire de ce qui se passe..</p>
-
-    <h1>Enquête de Satisfaction</h1>
-    <!--  liste des services a enqueter -->
+        
     <div class="list-group mt-5 mb-5 p-5 text-center">
         <a href="index.php?page=7" class="list-group-item list-group-item-action active">
             <h3 class="mb-3">Séjour</h3>

@@ -42,7 +42,7 @@ class Controleur {
     public function getEnquete() {
         return $this->unModele->getEnquete();
     }
-
+    
     public function SejoursMoyennesNotes() {
         $tab = $this->unModele->SejoursMoyennesNotes(); // Récupérez les données du modèle
 

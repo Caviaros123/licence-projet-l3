@@ -127,7 +127,7 @@ switch ($page) {
         break;
     case 4: {
         // Intentionnelle: inclusion d'un fichier inexistant
-        require_once("vues/vue_utilisateurs_inexistant.php");
+        require_once("vues/vue_stat.php");
     }
         break;
     case 5: {
