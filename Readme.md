@@ -39,6 +39,13 @@ WeMakeDonation a été créé dans le but de faciliter et d'optimiser la collect
 
 Nous accueillons les contributions de la communauté. Si vous souhaitez contribuer au développement de WeMakeDonation, veuillez consulter notre guide de contribution[bientot mis en place].
 
+## Ce qu'il reste à faire
+
+Faire fonctionner l'enquete Donation et Volontariat (le bouton Valider). 
+Ajustez les images de l'enquete Volontariat
+Regler le soucis avec l'inscription.
+Modifier le ppt (canva).
+
 ---
 
 *WeMakeDonation - Faites une différence, un don à la fois.*
