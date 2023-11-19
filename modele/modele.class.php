@@ -35,18 +35,18 @@ class Modele {
 
 
     public function connexion($email, $mdp) {
-        $requete = "SELECT * FROM Utilisateurs WHERE email = :email";
+        $requete = "SELECT * FROM utilisateurs WHERE email = :email";
         $select = $this->unPdo->prepare($requete);
         $select->execute([":email" => $email]);
         $utilisateur = $select->fetch();
-        echo "<br> MDP BDD :".$utilisateur['Mdp_Utilisateur'];
-        echo "<br> MDP hash :".$mdp; 
-        //$mdp =  password_hash ($mdp, PASSWORD_DEFAULT); 
-        echo "<br> MDP :".$mdp;
+        // echo "<br> MDP BDD :".$utilisateur['mdp_utilisateur'];
+        // echo "<br> MDP hash :".$mdp;
+        // $mdp =  password_hash ($mdp, PASSWORD_DEFAULT);
+        // echo "<br> MDP :".$mdp;
 
-        if ($utilisateur && isset($utilisateur['Mdp_Utilisateur']) && $utilisateur['Mdp_Utilisateur']==$mdp) {
+        if ($utilisateur && password_verify($mdp, $utilisateur['mdp_utilisateur'])) {
             // Connexion réussie
-            unset($utilisateur['Mdp_Utilisateur']);
+            unset($utilisateur['mdp_utilisateur']);
             return $utilisateur;
         } else {
             // Identifiants incorrects
