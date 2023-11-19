@@ -1,7 +1,7 @@
 <div class="container text-center">
    <!--  logo center -->
    <div class="text-center">
-        <img src="public/images/logo-black.png" alt="logo" style="width:350px;">
+        <img src="public/images/logo-black.png" alt="logo" style="width:350px;" >
     </div>
     <br>
     <div class="row">
@@ -9,10 +9,10 @@
             <div class="card mb-3">
                 <div class="row">
                     <div class="col">
-                        <img src="public/images/donnation.jpg" alt="enfant_eau" class="card-img-top" style="max-width: 50%;">
+                        <img src="public/images/donnation.jpg" alt="enfant_eau" class="card-img-top" style="max-width: 50%;" loading="lazy">
                     </div>
                     <div class="col">
-                        <img src="public/images/enfant_inde.jpg" alt="ecole" class="card-img-top" style="max-width: 75%;">
+                        <img src="public/images/enfant_inde.jpg" alt="ecole" class="card-img-top" style="max-width: 75%;" loading="lazy">
                     </div>
                 </div>
                 <div class="card-body">
