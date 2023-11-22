@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
     <meta name="keywords" content="exemple projet site gestion des dons, Dons,  gestion des dons">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./public/css/style.css">
     <!--  fav icon -->
     <link rel="icon" href="public/images/logo-black.png" />
     <title>WeMake Donation</title>
