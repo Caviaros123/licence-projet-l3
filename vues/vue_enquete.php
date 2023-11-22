@@ -1,3 +1,5 @@
+
+<link rel="stylesheet" href="style.css">
 <?php
     require_once("controleur/controleur.class.php");
     $unControleur = new Controleur();

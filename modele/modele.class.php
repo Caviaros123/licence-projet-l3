@@ -6,7 +6,7 @@ class Modele {
         try {
             $url = "mysql:host=localhost;dbname=wmd_23;charset=utf8";
             $user = "root";
-            $mdp = "root";
+            $mdp = "";
             $this->unPdo = new PDO($url, $user, $mdp);
         } catch (PDOException $exp) {
             echo "<br> Erreur de connexion à la BDD : " . $exp->getMessage();

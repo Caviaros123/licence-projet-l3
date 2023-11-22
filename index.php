@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-       <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="keywords" content="exemple projet site gestion des dons, Dons,  gestion des dons">
+    <link rel="stylesheet" href="style.css">
     <!--  fav icon -->
     <link rel="icon" href="public/images/logo-black.png" />
     <title>WeMake Donation</title>
@@ -14,7 +16,7 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+<nav class="navbar navbar-expand-sm bg-light navbar-light" style="background-color: #DCDCDC;">
         <ul class="nav justify-content-end">
             <li class="nav-item">
                 <a class="navbar-brand nav-link" href="index.php?page=1">
@@ -44,9 +46,9 @@
                 if(isset($_COOKIE['user'])){
                     $user = json_decode($_COOKIE['user']);
                 
-                    echo "<li class='nav-item justify-content-end'><a class='nav-link' href='index.php?page=3'><img src='https://www.gravatar.com/avatar/zelubce' alt='avatar' style='width:30px;'>
+                   /* echo "<li class='nav-item justify-content-end'><a class='nav-link' href='index.php?page=3'><img src='https://www.gravatar.com/avatar/zelubce' alt='avatar' style='width:30px;'>
                         ".$user->email."
-                    </a></li>";
+                    </a></li>";*/
                 }
             ?>
         </ul>
@@ -174,7 +176,7 @@ switch ($page) {
 </body>
 <!-- footer -->
 <footer class="bg-light text-center text-lg-start fixed-bottom">
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0);">
+    <div class="text-center p-3" style="background-color: azure;">
         <a class="text-dark" href="https://wemakedonation.com/">wemakedonation.com</a>
     </div>
 </footer>
