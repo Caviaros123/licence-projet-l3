@@ -7,10 +7,10 @@
 ?>
 
 <div class="container p-5">
-    <p>L'objectif de cette enquête de satisfaction est de recueillir des commentaires et des évaluations des 
-        clients après leur séjour. Nous cherchons à comprendre et à mesurer leur niveau de satisfaction, ainsi 
-        que leurs opinions sur différents aspects de leur expérience. Merci de prendre le temps de remplir cette 
-        enquête et de partager votre avis avec nous.</p>
+    <p>L'objectif principal de cette enquête est de recueillir vos commentaires et 
+        évaluations après avoir effectué un don sur WeMakeDonation. Nous croyons en la 
+        transparence, l'efficacité et l'amélioration continue, et votre contribution à 
+        cette enquête est essentielle pour nous aider à atteindre ces objectifs..</p>
 
     <h1>Enquête de Satisfaction Donnation</h1>
     <!-- grille des differents organismes de donations: enfants, handicapé, cancer etc  -->

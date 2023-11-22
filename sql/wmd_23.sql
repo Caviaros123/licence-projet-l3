@@ -217,6 +217,16 @@ CREATE TABLE activites_projets (
     FOREIGN KEY (id_projet) REFERENCES projets_carita(id_projetcar)
 );
 
+--- insert table Sejour ---
+INSERT INTO sejours (date_debut_sejour, nb_places_dispo_sejour, station_sejour, prix_sejour)
+VALUES
+    ('2023-12-01', 10, 'Station A', 500.00),
+    ('2023-11-15', 5, 'Station B', 700.50),
+    ('2024-01-05', 8, 'Station C', 450.75),
+    ('2023-12-20', 12, 'Station D', 600.25);
+
+
+
 
 --[Donations] lorsqu'une nouvelle donation est ajoutée, un trigger pour mettre à jour automatiquement
 --le total des dons effectués par un utilisateur spécifique.

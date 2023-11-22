@@ -15,9 +15,9 @@ class Modele {
 
     public function inscription($tab) {
         $dateInscription = date("Y-m-d H:i:s"); // Obtient la date actuelle au format "Y-m-d H:i:s"
-        var_dump($dateInscription);
-        var_dump("USER DATA ====>> ".json_encode($tab));
-        $requete = "INSERT INTO Utilisateurs (nom, prenom, age, email, telephone, mdp_utilisateur, date_inscription) VALUES (:nom, :prenom, :age, :email, :telephone, :mdp, :dateInscription)";
+        //var_dump($dateInscription);
+        //var_dump("USER DATA ====>> ".json_encode($tab));
+        $requete = "INSERT INTO utilisateurs (nom, prenom, age, email, telephone, mdp_utilisateur, date_inscription) VALUES (:nom, :prenom, :age, :email, :telephone, :mdp, :dateInscription)";
         
         $donnees = array(
             ":nom" => $tab["nom"],
@@ -64,14 +64,14 @@ class Modele {
     }
 
     public function getUsers() {
-        $requete = "SELECT * FROM Utilisateurs";
+        $requete = "SELECT * FROM utilisateurs";
         $select = $this->unPdo->prepare($requete);
         $select->execute();
         return $select->fetchAll();
     }
 
     public function getInscriptions() {
-        $requete = "SELECT age, date_inscription FROM Utilisateurs";
+        $requete = "SELECT age, date_inscription FROM utilisateurs";
         $select = $this->unPdo->prepare($requete);
         $select->execute();
         return $select->fetchAll(PDO::FETCH_ASSOC);
@@ -85,7 +85,7 @@ class Modele {
         // Assurez-vous que la clé "user" existe dans le tableau et n'est pas NULL
         if (isset($tab["user"]) && $tab["user"] !== null) {
             // Utilisation de la fonction MySQL NOW() pour la date actuelle
-            $requete = "INSERT INTO Evaluations (id_sejour, note, commentaire, date_evaluation, id_utilisateur) VALUES (:id_sejour, :note, :commentaire, NOW(), :id_utilisateur)";
+            $requete = "INSERT INTO evaluations (id_sejour, note, commentaire, date_evaluation, id_utilisateur) VALUES (:id_sejour, :note, :commentaire, NOW(), :id_utilisateur)";
     
             $donnees = array(
                 ":id_sejour" => $tab["id_sejour"],
