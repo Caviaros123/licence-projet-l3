@@ -47,8 +47,7 @@ CREATE TABLE projets_carita (
     id_imagep INT,
     PRIMARY KEY (id_projetcar),
     FOREIGN KEY (id_assocarita) REFERENCES asso_carita(id_assocarita),
-    FOREIGN KEY (id_cateproj) REFERENCES cate_projets(id_cateproj),
-    FOREIGN KEY (id_imagep) REFERENCES images_p(id_imagep)
+    FOREIGN KEY (id_cateproj) REFERENCES cate_projets(id_cateproj)
 );
 
 -- Création de la table Image_P
@@ -60,6 +59,9 @@ CREATE TABLE images_p (
     PRIMARY KEY (id_imagep),
     FOREIGN KEY (id_projetcar) REFERENCES projets_carita(id_projetcar)
 );
+-- Alter Table sur la Table Projets_carita
+ALTER TABLE projets_carita
+ADD FOREIGN KEY (id_imagep) REFERENCES images_p(id_imagep);
 
 -- Création de la table Roles
 CREATE TABLE roles (
@@ -143,8 +145,7 @@ CREATE TABLE paiements (
     stat_paie VARCHAR(255),
     ref_paie VARCHAR(255),
     PRIMARY KEY (id_paiement),
-    FOREIGN KEY (id_utilisateur) REFERENCES utilisateurs(id_utilisateur),
-    FOREIGN KEY (id_donnation) REFERENCES donnations(id_donnation)
+    FOREIGN KEY (id_utilisateur) REFERENCES utilisateurs(id_utilisateur)
 );
 
 -- Création de la table Donnations
@@ -153,15 +154,20 @@ CREATE TABLE donnations (
     montant_don DECIMAL(10, 2),
     date_don DATE,
     id_utilisateur INT,
-    id_projet INT,
+    id_projetcar INT,
     id_catedon INT,
     id_imagep INT,
     PRIMARY KEY (id_donnation),
     FOREIGN KEY (id_utilisateur) REFERENCES utilisateurs(id_utilisateur),
-    FOREIGN KEY (id_projet) REFERENCES projets_carita(id_projetcar),
+    FOREIGN KEY (id_projetcar) REFERENCES projets_carita(id_projetcar),
     FOREIGN KEY (id_catedon) REFERENCES cate_don (id_catedon),
     FOREIGN KEY (id_imagep) REFERENCES images_p(id_imagep)
 );
+
+-- Rajouter dans la table paiements la clé étrangère de la table donnation -- 
+ALTER TABLE paiements
+ADD FOREIGN KEY (id_donnation) REFERENCES donnations(id_donnation);
+
 
 -- Création de la table Activités
 CREATE TABLE activites (
@@ -198,32 +204,43 @@ CREATE TABLE activites_sejours (
     FOREIGN KEY (id_sejour) REFERENCES sejours(id_sejour)
 );
 
--- Création de la table Activités_Evenements
-CREATE TABLE activites_evenements (
-    id_activite INT,
-    id_evenement INT,
-    PRIMARY KEY (id_activite, id_evenement),
-    FOREIGN KEY (id_activite) REFERENCES activites(id_activite),
-    FOREIGN KEY (id_evenement) REFERENCES evenements(id_evenement)
-);
 
-
--- Création de la table Activités_Projets
-CREATE TABLE activites_projets (
-    id_activite INT,
-    id_projet INT,
-    PRIMARY KEY (id_activite, id_projet),
-    FOREIGN KEY (id_activite) REFERENCES activites(id_activite),
-    FOREIGN KEY (id_projet) REFERENCES projets_carita(id_projetcar)
-);
-
---- insert table Sejour ---
+--- Insert table Sejour ---
 INSERT INTO sejours (date_debut_sejour, nb_places_dispo_sejour, station_sejour, prix_sejour)
 VALUES
     ('2023-12-01', 10, 'Station A', 500.00),
     ('2023-11-15', 5, 'Station B', 700.50),
     ('2024-01-05', 8, 'Station C', 450.75),
     ('2023-12-20', 12, 'Station D', 600.25);
+
+
+-- Inséret table rôles
+INSERT INTO roles (nom_role) VALUES ('Utilisateur');
+
+INSERT INTO roles (nom_role) VALUES ('Invité');
+
+INSERT INTO roles (nom_role) VALUES ('Modérateur');
+
+--Insert utilisateurs
+INSERT INTO utilisateurs (nom, prenom, email, age, mdp_utilisateur, telephone, date_inscription, id_role)
+VALUES ('Doe', 'John', 'john.doe@example.com', 30, 'motdepasse123', '123456789', NOW(), 1);
+
+-- Insérer un autre utilisateur
+INSERT INTO utilisateurs (nom, prenom, email, age, mdp_utilisateur, telephone, date_inscription, id_role)
+VALUES ('Smith', 'Jane', 'jane.smith@example.com', 25, 'mdp456', '987654321', NOW(), 2);
+
+-- Insérer un troisième utilisateur
+INSERT INTO utilisateurs (nom, prenom, email, age, mdp_utilisateur, telephone, date_inscription, id_role)
+VALUES ('Martin', 'Luc', 'luc.martin@example.com', 40, 'monmotdepasse', '5551234567', NOW(), 1);
+
+-- Insérer un asso_carita
+INSERT INTO asso_carita (nom_asso_carita, descrip_asso_carita, pays_asso_carita, adresse_asso_carita, email_asso_carita, objectif_asso_carita)
+VALUES
+    ('Caritas Internationalis', 'Confédération mondiale d\'organisations caritatives catholiques.', 'Vatican', 'Adresse Caritas', 'info@caritas.org', 'Promouvoir la solidarité et la justice sociale.'),
+    ('Médecins Sans Frontières (MSF)', 'Organisation médicale humanitaire.', 'France', 'Adresse MSF', 'info@msf.org', 'Fournir des soins médicaux d\'urgence.'),
+    ('Save the Children', 'Organisation pour l\'amélioration de la vie des enfants.', 'International', 'Adresse Save the Children', 'info@savethechildren.org', 'Protéger les droits des enfants et leur fournir des opportunités.'),
+    ('Oxfam', 'Groupe international luttant contre la pauvreté et l\'injustice sociale.', 'International', 'Adresse Oxfam', 'info@oxfam.org', 'Lutte contre la pauvreté et les inégalités.'),
+    ('CARE', 'Organisation humanitaire luttant contre la pauvreté.', 'International', 'Adresse CARE', 'info@care.org', 'Fournir une aide d\'urgence et lutter contre la pauvreté.');
 
 
 
