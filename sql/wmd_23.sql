@@ -115,10 +115,12 @@ CREATE TABLE sejours (
 CREATE TABLE evaluations (
     id_evaluation INT AUTO_INCREMENT,
     id_sejour INT,
+    id_utilisateur INT,
     note INT NOT NULL,
     commentaire VARCHAR(255) NOT NULL,
     date_evaluation DATE,
     PRIMARY KEY (id_evaluation),
+    FOREIGN KEY (id_utilisateur) REFERENCES utilisateurs(id_utilisateur),
     FOREIGN KEY (id_sejour) REFERENCES sejours(id_sejour)
 );
 
