@@ -91,7 +91,6 @@ switch ($page) {
     }
         break;
     case 2: {
-
         if (isset($_POST['Valider'])) {
             $user = new User();
             $user->renseigner($_POST);
@@ -104,12 +103,13 @@ switch ($page) {
     }
         break;
     case 3: {
-        // deconnexion
+        // deconnexion de l'utilisateur courant
         if (isset($_COOKIE['user'])) {
             // Intentionnelle: cookie non supprimé lors de la déconnexion
             setcookie("user", "", time() + 3600);
             header('Location: index.php?page=1');
         }
+        // connexion de l'utilisateur
         if (isset($_POST['seConnecter'])) {
             $email = $_POST['email'];
             $mdp = $_POST['mdp'];
@@ -120,6 +120,7 @@ switch ($page) {
             if ($user!=null) {
                 $userJson = json_encode($user);
                 setcookie("user", $userJson, time() + 3600);
+                header('Location: index.php?page=1');
                 // Intentionnelle: inclusion d'une vue non existante
                 //require_once("vues/vue_page_inexistante.php");
             } else {
