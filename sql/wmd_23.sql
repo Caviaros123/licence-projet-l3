@@ -219,12 +219,6 @@ VALUES
     ('2023-07-07', 20, 'Station G', 123.56),
     ('2023-08-08', 17, 'Station H', 218.40);
 
-INSERT INTO evaluations (id_sejour, id_utilisateur, note, commentaire, date_evaluation) 
-VALUES 
-(1, 1, 4, 'Très bon séjour !', '2023-12-15'),
-(2, 2, 5, 'Expérience formidable.', '2023-12-16'),
-(3, 3, 3, 'Peut être amélioré.', '2023-12-17');
-
 
 -- Inséret table rôles --
 INSERT INTO roles (nom_role) VALUES ('Utilisateur');
@@ -245,6 +239,12 @@ VALUES ('Smith', 'Jane', 'jane.smith@example.com', 25, 'mdp456', '987654321', NO
 INSERT INTO utilisateurs (nom, prenom, email, age, mdp_utilisateur, telephone, date_inscription, id_role)
 VALUES ('Martin', 'Luc', 'luc.martin@example.com', 40, 'monmotdepasse', '5551234567', NOW(), 1);
 
+INSERT INTO evaluations (id_sejour, id_utilisateur, note, commentaire, date_evaluation) 
+VALUES 
+(1, 1, 4, 'Très bon séjour !', '2023-12-15'),
+(2, 2, 5, 'Expérience formidable.', '2023-12-16'),
+(3, 3, 3, 'Peut être amélioré.', '2023-12-17');
+
 -- Insérer un asso_carita --
 INSERT INTO asso_carita (nom_asso_carita, descrip_asso_carita, pays_asso_carita, adresse_asso_carita, email_asso_carita, objectif_asso_carita)
 VALUES
@@ -256,10 +256,10 @@ VALUES
 
 -- Inserer cate_don --
  INSERT INTO cate_don (nom_cate_don, descrip_cate_don) VALUES
-('Annuels','Ce type de donnation s effectue tout les ans');
+('Annuels','Ce type de donnation  effectue tout les ans');
 
 INSERT INTO cate_don (nom_cate_don, descrip_cate_don) VALUES
-('Mensuelle','Ce type de donnatin s effectue tout les mois');
+('Mensuelle','Ce type de donnation  effectue tout les mois');
 
 
 --insert Activités-- 
@@ -341,18 +341,19 @@ INSERT INTO cate_projets (nom_cate_proj, descrip_cate_proj) VALUES
 
 -- Eau et assainissement
 INSERT INTO cate_projets (nom_cate_proj, descrip_cate_proj) VALUES
-('Categorie Projet5', 'Description5')
+('Categorie Projet5', 'Description5.');
+
 -- Logement
 INSERT INTO cate_projets (nom_cate_proj, descrip_cate_proj) VALUES
-('Categorie Projet6', 'Categorie Projet6.');
+('Categorie Projet6', 'Description6.');
 
 -- Développement économique
 INSERT INTO cate_projets (nom_cate_proj, descrip_cate_proj) VALUES
-('Categorie Projet7', 'Categorie Projet7.');
+('Categorie Projet7', 'Description7.');
 
 -- Droits de l'homme
 INSERT INTO cate_projets (nom_cate_proj, descrip_cate_proj) VALUES
-('Categorie Projet8', 'Categorie Projet8.');
+('Categorie Projet8', 'Description8.');
 
 
 
