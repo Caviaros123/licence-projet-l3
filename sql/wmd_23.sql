@@ -219,6 +219,12 @@ VALUES
     ('2023-07-07', 20, 'Station G', 123.56),
     ('2023-08-08', 17, 'Station H', 218.40);
 
+INSERT INTO evaluations (id_sejour, id_utilisateur, note, commentaire, date_evaluation) 
+VALUES 
+(1, 1, 4, 'Très bon séjour !', '2023-12-15'),
+(2, 2, 5, 'Expérience formidable.', '2023-12-16'),
+(3, 3, 3, 'Peut être amélioré.', '2023-12-17');
+
 
 -- Inséret table rôles --
 INSERT INTO roles (nom_role) VALUES ('Utilisateur');
