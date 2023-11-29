@@ -1,7 +1,5 @@
 
-    
-    
-    
+   
 <link rel="stylesheet" href="style.css">
 
 <div class="container text-center">
@@ -14,7 +12,7 @@
         <div class="col">
             <div class="card mb-3" style="background-color: azure;">
                 <div class="row">
-                    <div class="col">
+                    <div class="col"> 
                         <img src="public/images/donnation.jpg" alt="enfant_eau" class="card-img-top img-hover" style="max-width: 50%; margin: 20px 5px 5px 25px; border-radius: 20px;" loading="lazy">
                     </div>
                     <div class="col">

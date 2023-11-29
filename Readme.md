@@ -41,10 +41,16 @@ Nous accueillons les contributions de la communauté. Si vous souhaitez contribu
 
 ## Ce qu'il reste à faire
 
-Faire fonctionner l'enquete Donation et Volontariat (le bouton Valider). 
-Ajustez les images de l'enquete Volontariat
-Regler le soucis avec l'inscription.
-Modifier le ppt (canva).
+Ce qu'il faut faire sur le site : 
+
+-Fonctionner les deux enquêtes + Rajouter les statistique des enquetes manquantes
+
+-Ajouter une page "profil" qui permettrai à l'utilisateur connecter de voir ses information (Role, nombre de donnation,
+les enquetes qu'il à effectuer)
+
+-Codage page "Donnation"
+
+-changer la couleur du site
 
 ## Comment envoyer son code sur GitHub :
 
@@ -52,7 +58,7 @@ git status
 git add . 
 git status
 git commit -m ""
-git push origin neal 
+git push origin (le nom de ta branche) 
 ---
 
 *WeMakeDonation - Faites une différence, un don à la fois.*
