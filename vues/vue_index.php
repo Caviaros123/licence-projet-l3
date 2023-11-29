@@ -1,18 +1,22 @@
+
+   
+<link rel="stylesheet" href="style.css">
+
 <div class="container text-center">
-   <!--  logo center -->
-   <div class="text-center">
+  <!--  logo center -->
+  <div class="text-center">
         <img src="public/images/logo-black.png" alt="logo" style="width:350px;" >
     </div>
     <br>
     <div class="row">
         <div class="col">
-            <div class="card mb-3">
+            <div class="card mb-3" style="background-color: azure;">
                 <div class="row">
-                    <div class="col">
-                        <img src="public/images/donnation.jpg" alt="enfant_eau" class="card-img-top" style="max-width: 50%;" loading="lazy">
+                    <div class="col"> 
+                        <img src="public/images/donnation.jpg" alt="enfant_eau" class="card-img-top img-hover" style="max-width: 50%; margin: 20px 5px 5px 25px; border-radius: 20px;" loading="lazy">
                     </div>
                     <div class="col">
-                        <img src="public/images/enfant_inde.jpg" alt="ecole" class="card-img-top" style="max-width: 75%;" loading="lazy">
+                        <img src="public/images/enfant_inde.jpg" alt="ecole" class="card-img-top img-hover" style="max-width: 75%; margin: 20px 25px 5px 5px; border-radius: 20px;" loading="lazy">
                     </div>
                 </div>
                 <div class="card-body">
@@ -40,7 +44,7 @@
     <div class="card">
         <div class="card-body">
             <p class="lead">
-                Initiée par deux étudiants en 3e année de développement web, notre projet vise à lutter contre la pauvreté dans le monde et à sauver des vies.
+                Initiée par trois étudiants en 3e année de développement web, notre projet vise à lutter contre la pauvreté dans le monde et à sauver des vies.
             </p>
             <p class="lead">
                 Nous sommes profondément conscients des défis liés à la pauvreté qui touchent des millions de personnes à travers le globe. Chaque don que vous faites contribue à alléger ces difficultés, que ce soit en fournissant un abri, de la nourriture, des soins médicaux, ou en soutenant des projets éducatifs.
@@ -69,7 +73,7 @@
         <br>
         <br>
 
-        <h1 class="display-6 text-start">Nos Services :</h1> 
+    <div> <h1 class="display-6 text-start">Nos Services :</h1></div>
         <br> 
         <div class="row">
             <div class="col">

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-       <meta charset="utf-8">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
     <!--  fav icon -->
     <link rel="icon" href="public/images/logo-black.png" />

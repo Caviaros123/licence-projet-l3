@@ -1,0 +1,50 @@
+
+body{
+    background-color: #74EC8D;
+   }
+   .card-body{
+       /*background-color: azure;*/
+   
+   }
+   /* style.css */
+   
+   .navbar {
+       background-color: #74EC8D;
+   }
+   
+   
+   /* Pour les h1 à l'intérieur de div */
+   div h1 {
+       color: rgb(7, 7, 7);
+       font-size: 24px;
+       text-decoration: none;
+       font-family: Arial;
+   }
+   
+   /* Pour la liste dans la barre de navigation */
+   .nav.justify-content-end {
+       list-style-type:none;
+       display: flex;  /* Utilisation de flexbox pour rendre la liste horizontale */
+   }
+   
+   /* Pour les éléments li à l'intérieur de la liste */
+   .nav.justify-content-end li {
+       border: 1px black ;
+       border-radius: 12px;
+       background-color: gray;
+       text-align: center;
+       margin-left: 5px;
+   }
+   .nav.justify-content-end a {
+       color: #74EC8D;
+       text-decoration: none;
+       font-weight: bold; /*police en gras*/
+   }
+   .nav.justify-content-end a:hover{
+       color: black;
+       border-radius: 12px;
+   }
+   .img-hover:hover {
+       transition: all 0.3s ease-in-out; /* Ajoute une transition fluide sur toutes les propriétés pendant 0.3 secondes */
+       max-width: 100%; /* Change la largeur maximale au survol */
+   }
