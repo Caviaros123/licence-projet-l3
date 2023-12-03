@@ -1,12 +1,12 @@
 
-body{
-    background-color: #74EC8D;
-   }
-   .card-body{
-       /*background-color: azure;*/
-   
-   }
-   /* style.css */
+body {
+    background-image: url('public/images/terre.jpg'); 
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center; 
+}
+
+
    
    .navbar {
        background-color: #74EC8D;
