@@ -57,7 +57,7 @@
 
 
     <center>
-        <div class="flex">
+<div class="flex">
 
             <h1>Bienvenue sur</h1>
             
@@ -70,7 +70,7 @@
             $prenom = isset($user->prenom) ? $user->prenom : '';
         }
     ?>
-</div>
+        </div>
 
 
         <br>
@@ -170,7 +170,7 @@ switch ($page) {
 
 }
 ?>
-
+</div>
 </center>
 
 </body>
